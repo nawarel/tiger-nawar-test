@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/features\/SecurityTest[1:3]","start":1658727090890,"end":1658727092729,"title":"src\/test\/resources\/features\/SecurityTest[1:3] 01:31:30.890-01:31:32.729 generate token with valid username and  valid password"},{"id":2,"group":1,"content":"src\/test\/resources\/features\/SecurityTest[2:11]","start":1658727092738,"end":1658727093087,"title":"src\/test\/resources\/features\/SecurityTest[2:11] 01:31:32.738-01:31:33.087 genarate token with invalid username and valid password"},{"id":3,"group":1,"content":"src\/test\/resources\/features\/SecurityTest[3:21]","start":1658727093096,"end":1658727093517,"title":"src\/test\/resources\/features\/SecurityTest[3:21] 01:31:33.096-01:31:33.517 genarate token with valid username and invalid password"},{"id":4,"group":1,"content":"src\/test\/resources\/features\/SecurityTest[4:31]","start":1658727093523,"end":1658727093980,"title":"src\/test\/resources\/features\/SecurityTest[4:31] 01:31:33.523-01:31:33.980 verify valid token and invalid username","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
